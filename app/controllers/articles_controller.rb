@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
    
       if @article.save
-        redirect_to @article
+        redirect_to @article, notice: "The article has been created!"
       else
         render 'new'
       end
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
       @article.destroy
    
-      redirect_to articles_path
+      redirect_to articles_path, notice: "The post has successfully deleted."
     end
    
     private
